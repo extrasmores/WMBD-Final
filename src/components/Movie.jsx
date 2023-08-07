@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
- const Movie = () => {
+
+ const Movie = ({ Poster, Title, Year, imbdID }) => {
+    // const [movie, setMovie] = useState({
+    //     Poster:"",
+    //     Title:"",
+    //     Year:"",
+    //     imdbID:"",
+    // })
 
  
   return (
 
-      <div class="movie">
-         <figure class="movie__img--wrapper">
+      <div className="movie">
+         <figure className="movie__img--wrapper">
        <img
-         class="movie__img"
-         src="${movie.Poster}"
+         className="movie__img"
+         src={Poster}
          alt=""
          />
         </figure>
-        <div class="movie__title">$</div>
-       <div class="movie__year"> $
+        <div className="movie__title">{Title}</div>
+       <div className="movie__year">{Year} 
          </div>           
      </div>
          )

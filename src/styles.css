@@ -201,6 +201,12 @@ section {
   position: relative;
 }
 
+.movies__results {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 16px;
+}
+
 .movie {
   width: 25%;
   padding: 24px;
@@ -269,6 +275,7 @@ select {
   display: flex;
   justify-content: space-between;
   margin: 48px 24px 24px 24px;
+  flex-wrap: wrap;
 }
 
 .fa-spinner {
