@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 
 const MovieInfo = ({ Poster, Title, Year }) => {
@@ -31,6 +31,9 @@ const MovieInfo = ({ Poster, Title, Year }) => {
         <div className="row">
           <div className="movie__container">
             <div className="movie__container--img animate__animated animate__bounceInUp">
+          <Link to="/">
+              <button className="back ">← Back</button>
+            </Link>
 
             {movieInfo && (
                 <figure className="movie__img--wrapper">
