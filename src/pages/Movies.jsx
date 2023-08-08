@@ -38,7 +38,7 @@ const Movies = () => {
   useEffect(() => {
     setTimeout(() => {
       renderMovies();
-    }, 1500);
+    }, 500);
   }, []);
 
   const [selectedMovieId, setSelectedMovieId] = useState(null);
@@ -66,7 +66,7 @@ const Movies = () => {
         </div>
         <div className="movie__year">
           <div className="movie__year--skeleton"></div>
-        </div>
+        </div> 
       </div>
     );
   }
