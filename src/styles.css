@@ -673,6 +673,10 @@ text-align: center;
 display: none;
   }
 
+  .summary {
+    display: none;
+  }
+
   h3 {
     font-size: 14px;
   }
