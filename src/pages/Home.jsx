@@ -36,6 +36,7 @@ const [query, setQuery] = useState("");
           </button>
         </form>
       </div>
+     
     <MovieImage />
     </section>
   );

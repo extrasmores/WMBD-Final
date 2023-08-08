@@ -17,15 +17,12 @@ import Logo from '../assets/popcorn-svgrepo-com.svg'
             <Link to="/" className="footer__link nav__link link__hover-effect">
               Home
             </Link>
-            <span className="footer__link no-cursor">About</span>
+            <span className="footer__link nav__link link__hover-effect no__cursor">About</span>
             <Link to="/books" className="footer__link nav__link link__hover-effect">
               Movies
             </Link>
-            <Link to="/cart" className="footer__link nav__link link__hover-effect">
-              Cart
-            </Link>
           </div>
-          <div className="footer__copyright">Copyright &copy; 2021 Library</div>
+          <div className="footer__copyright">Copyright &copy; 2023 Torin Williamson; OMDb API</div>
         </div>
       </div>
     </footer>

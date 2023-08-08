@@ -16,14 +16,14 @@ import { Link, useNavigate } from 'react-router-dom';
 <section id="nav__background">
       <nav>
         <Link to="/">
-        <img className="logo" src={logo} alt="" />
+        <img className="logo animate__animated animate__backInLeft" src={logo} alt="" />
         </Link>
         <ul className="nav__links animate__animated animate__backInLeft">
           <li><a href="/" className="nav__link link__hover-effect">Home</a></li>
           <li>
             <a href="#" className="nav__link link__hover-effect ">Find your movie</a>
           </li>
-          <li><a href="#" className="nav__link">CONTACT</a></li>
+          <li><a href="#" className="nav__link link__hover-effect no__cursor">CONTACT</a></li>
         </ul>
       </nav>
       {/* <div className="content__wrapper">

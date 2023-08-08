@@ -101,7 +101,7 @@ h3 {
 input {
   color: rgba(0, 0, 0, 0.87);
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   height: 60px;
   font-size: 20px;
   padding-left: 20px;
@@ -429,30 +429,48 @@ select {
   padding: 0 8px;
 }
 
+.no__cursor {
+  cursor: not-allowed;
+}
+
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* SKELETON LOADING */
 
 .movie__img--wrapper-skeleton {
   width: 256px;
   height: 380px;
-  color: lightgrey;
+  background-color: lightgrey;
 }
 
 .movie__img--skeleton {
-  width: 256px;
-  height: 380px;
-  color: lightgrey;
+  /* width: 256px;
+  height: 380px; */
+  width: 100%;
+  background-color: lightgrey;
 }
 
 .movie__title--skeleton {
   width: 240px;
   height: 22px;
-  color: lightgrey;
+  background-color: lightgrey;
 }
 
 .movie__year--skeleton {
   width: 240px;
   height: 22px;
-  color: lightgrey;
+  background-color: lightgrey;
 }
 
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */

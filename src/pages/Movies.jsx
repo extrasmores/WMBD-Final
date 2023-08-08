@@ -9,7 +9,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const { query } = useParams();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   async function renderMovies() {
     setLoading(true);
@@ -38,7 +38,7 @@ const Movies = () => {
   useEffect(() => {
     setTimeout(() => {
       renderMovies();
-    }, 500);
+    }, 1000);
   }, []);
 
   const [selectedMovieId, setSelectedMovieId] = useState(null);
@@ -50,23 +50,19 @@ const Movies = () => {
   function renderSkeleton(index) {
     return (
       <div className="movie" key={index}>
-        <FontAwesomeIcon
-          icon={faSpinner}
-          className="fas fa-spinner movies__loading--spinner"
-        ></FontAwesomeIcon>
         <div className="movie__img--wrapper">
-          <div className="movie__img--wrapper-skeleton"></div>
+          <div className="movie__img--wrapper-skeleton animate__animated animate__bounceInUp"></div>
         </div>
         <div className="movie__img">
-          <div className="movie__img--skeleton"></div>
+          <div className="movie__img--skeleton animate__animated animate__bounceInUp"></div>
         </div>
-        {/* <img src="" alt="" className="movie__img movie__img--skeleton" /> */}
+        <img src="" alt="" className="movie__img movie__img--skeleton animate__animated animate__bounceInUp" />
         <div className="movie__title">
-          <div className="movie__title--skeleton"></div>
+          <div className="movie__title--skeleton animate__animated animate__bounceInUp"></div>
         </div>
         <div className="movie__year">
-          <div className="movie__year--skeleton"></div>
-        </div> 
+          <div className="movie__year--skeleton animate__animated animate__bounceInUp"></div>
+        </div>
       </div>
     );
   }
@@ -96,10 +92,9 @@ const Movies = () => {
           </div>
           <div className="movies__container">
             <div className="movies movies__loading">
-              {/* <FontAwesomeIcon icon={faSpinner}className="fas fa-spinner movies__loading--spinner"></FontAwesomeIcon> */}
             </div>
             {loading
-              ? new Array().fill(0).map((_, index) => renderSkeleton(index))
+              ? new Array(8).fill(0).map((_, index) => renderSkeleton(index))
               : movies.map((movie, index) => (
                   <Movie
                     key={movie.imdbID}

@@ -26,10 +26,11 @@ const MovieInfo = ({ Poster, Title, Year }) => {
   return (
     <div>
       <Nav />
+      
       <section id="movie">
         <div className="row">
           <div className="movie__container">
-            <div className="movie__container--img">
+            <div className="movie__container--img animate__animated animate__bounceInUp">
 
             {movieInfo && (
                 <figure className="movie__img--wrapper">
@@ -39,12 +40,12 @@ const MovieInfo = ({ Poster, Title, Year }) => {
             </div>
             <div className="movie__container--info">
 
-            {movieInfo && <div className="movie__title">{movieInfo.Title}</div>}
-            {movieInfo && <div className="movie__year">{movieInfo.Year}</div>}
-            {movieInfo && <h3 className="movie__genre">{movieInfo.Genre}</h3>}
-            <h3 className="summary">Summary</h3>
-            {movieInfo && <p className="movie__plot">{movieInfo.Plot}</p>}
-            {movieInfo && <h4>Total Box Office: {movieInfo.BoxOffice}</h4>}
+            {movieInfo && <div className="movie__title animate__animated animate__bounceInUp">{movieInfo.Title}</div>}
+            {movieInfo && <div className="movie__year animate__animated animate__bounceInUp">{movieInfo.Year}</div>}
+            {movieInfo && <h3 className="movie__genre animate__animated animate__bounceInUp">{movieInfo.Genre}</h3>}
+            <h3 className="summary animate__animated animate__bounceInUp">Summary</h3>
+            {movieInfo && <p className="movie__plot animate__animated animate__bounceInUp">{movieInfo.Plot}</p>}
+            {movieInfo && <h4 className="animate__animated animate__bounceInUp">Total Box Office: {movieInfo.BoxOffice}</h4>}
             </div>
           </div>
         </div>
