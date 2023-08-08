@@ -14,6 +14,23 @@ body {
   background-color: #242424;
 }
 
+h3 {
+  color: #fff;
+}
+
+h4 {
+  color: #3ad3a0;
+
+}
+
+p {
+  color: #fff;
+  max-width: 350px;
+  margin: 8px 0;
+}
+
+
+
 .home__movie__img--wrapper {
 margin: 16px auto;
 display: flex;
@@ -73,6 +90,12 @@ h2 {
   font-size: 32px;
   max-width: 1000px;
   color: #3ad3a0;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 20px;
+  margin: 8px 0;
 }
 
 input {
@@ -215,7 +238,7 @@ section {
 .movie__img {
   max-height: 380px;
   transition: all 300ms ease;
-  cursor: not-allowed;
+  cursor: pointer;
   /* Added after tutorial to maintain image aspect ratio */
   object-fit: contain;
   object-position: left;
@@ -223,27 +246,51 @@ section {
   object-position: left;
 }
 
+.movie__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.movie__container--img {
+  width: 50%;
+  margin-left: 120px;
+  margin-top: 64px;
+  margin-right: -88px;
+
+}
+
+.movie__container--info {
+  width: 50%;
+}
+
+
+
 .movie__img--wrapper {
-  margin-bottom: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
 }
 
 .movie__title {
-  color: white;
-  margin-bottom: 8px;
+  color: #3ad3a0;
+  margin: 8px 0;
   font-size: 18px;
 }
 
 .movie__title:hover {
   text-decoration: underline;
-  cursor: not-allowed;
+  cursor: pointer;
 }
 .movie__year {
-  color: white;
+  color: #3ad3a0;
   font-size: 16px !important;
+  margin: 8px 0;
 }
+
 
 .movie:hover .movie__img {
   transform: scale(1.03);
@@ -292,6 +339,31 @@ select {
 
 .movies__loading .movies__loading--spinner {
   display: block !important;
+}
+
+.back {
+  padding: 8px 16px;
+  background-color: #fff;
+  text-decoration: none;
+  padding: 16px 24px 16px 24px;
+  color: #242424;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  font-weight: 500;
+  border-radius: 45px;
+  transition: all 300ms ease;
+}
+
+.back:hover {
+  background-color: #3ad3a0;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.back:active {
+  transform: translateY(-1px);
 }
 
 @keyframes rotate {
@@ -357,6 +429,32 @@ select {
   padding: 0 8px;
 }
 
+/* SKELETON LOADING */
+
+.movie__img--wrapper-skeleton {
+  width: 256px;
+  height: 380px;
+  color: lightgrey;
+}
+
+.movie__img--skeleton {
+  width: 256px;
+  height: 380px;
+  color: lightgrey;
+}
+
+.movie__title--skeleton {
+  width: 240px;
+  height: 22px;
+  color: lightgrey;
+}
+
+.movie__year--skeleton {
+  width: 240px;
+  height: 22px;
+  color: lightgrey;
+}
+
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
   .header__description {
@@ -375,7 +473,5 @@ select {
     font-size: 18px;
   }
 
-  .movie {
-    width: 50%;
-  }
+
 }

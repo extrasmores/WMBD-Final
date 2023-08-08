@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
- const Movie = ({ Poster, Title, Year, imbdID }) => {
+ const Movie = ({ Poster, Title, Year, imdbID, onMovieClick }) => {
+
+    
     // const [movie, setMovie] = useState({
     //     Poster:"",
     //     Title:"",
@@ -12,7 +15,8 @@ import React, { useState } from 'react'
  
   return (
 
-      <div className="movie">
+      <div className="movie" onClick={() => onMovieClick(imdbID)}>
+        <Link to={`/movies/${imdbID}`}>
          <figure className="movie__img--wrapper">
        <img
          className="movie__img"
@@ -20,6 +24,7 @@ import React, { useState } from 'react'
          alt=""
          />
         </figure>
+        </Link>
         <div className="movie__title">{Title}</div>
        <div className="movie__year">{Year} 
          </div>           

@@ -3,7 +3,7 @@ import logo from '../assets/popcorn-svgrepo-com.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import 'animate.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
  const Nav = ({ filterMovies, query, setQuery }) => {
@@ -15,16 +15,18 @@ import { useNavigate } from 'react-router-dom';
   return (
 <section id="nav__background">
       <nav>
+        <Link to="/">
         <img className="logo" src={logo} alt="" />
+        </Link>
         <ul className="nav__links animate__animated animate__backInLeft">
-          <li><a href="#" className="nav__link link__hover-effect">Home</a></li>
+          <li><a href="/" className="nav__link link__hover-effect">Home</a></li>
           <li>
             <a href="#" className="nav__link link__hover-effect ">Find your movie</a>
           </li>
           <li><a href="#" className="nav__link">CONTACT</a></li>
         </ul>
       </nav>
-      <div className="content__wrapper">
+      {/* <div className="content__wrapper">
         <h1 className="title animate__animated animate__zoomIn">Browse our Movies</h1>
         <form className="input__wrapper animate__animated animate__backInLeft"
        >
@@ -41,7 +43,7 @@ import { useNavigate } from 'react-router-dom';
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </form>
-      </div>
+      </div> */}
     </section>
   )
 }

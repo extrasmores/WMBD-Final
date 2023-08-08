@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Movie from "../components/Movie";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -21,51 +21,96 @@ const Movies = () => {
     setLoading(false);
   }
 
-  // function filterMovies(event) {
-  //   event.preventDefault()
-  //   // const query = event.target.value;
-  //   renderMovies(query);
-  // }
+  function filterMovies(filter) {
+    if (filter) {
+      const filteredMovies = [...movies].sort((a, b) => {
+        if (filter === "OLD_TO_NEW") {
+          return a.Year - b.Year;
+        } else if (filter === "NEW_TO_OLD") {
+          return b.Year - a.Year;
+        }
+        return 0;
+      });
+      setMovies(filteredMovies);
+    }
+  }
 
   useEffect(() => {
-    renderMovies();
+    setTimeout(() => {
+      renderMovies();
+    }, 1500);
   }, []);
 
-  
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
+
+  const handleMovieClick = (imdbID) => {
+    setSelectedMovieId(imdbID);
+  };
+
+  function renderSkeleton(index) {
+    return (
+      <div className="movie" key={index}>
+        <FontAwesomeIcon
+          icon={faSpinner}
+          className="fas fa-spinner movies__loading--spinner"
+        ></FontAwesomeIcon>
+        <div className="movie__img--wrapper">
+          <div className="movie__img--wrapper-skeleton"></div>
+        </div>
+        <div className="movie__img">
+          <div className="movie__img--skeleton"></div>
+        </div>
+        {/* <img src="" alt="" className="movie__img movie__img--skeleton" /> */}
+        <div className="movie__title">
+          <div className="movie__title--skeleton"></div>
+        </div>
+        <div className="movie__year">
+          <div className="movie__year--skeleton"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <Nav  query={query} setQuery={setQuery} />
+      <Nav />
       <section id="movies">
         <div className="row">
           <div className="movies__results">
-
-            <h2 className="animate__animated animate__backInLeft">Results:</h2>
+            <Link to="/">
+              <button className="back ">← Back</button>
+            </Link>
+            <h2 className="animate__animated animate__backInLeft">
+              Results: {query}
+            </h2>
             <select
               defaultValue="Sort"
               className="filter__movies animate__animated animate__backInRight"
               id="filter"
-              >
+              onChange={(event) => filterMovies(event.target.value)}
+            >
               <option value="">Sort</option>
               <option value="NEW_TO_OLD">New to Old</option>
               <option value="OLD_TO_NEW">Old to New</option>
             </select>
-              </div>
-          <div className="movies__container">
-          <div className="movies movies__loading">
-            <i className="fas fa-spinner movies__loading--spinner"></i>
           </div>
-          {loading
-            ? new Array().fill(0).map((_, index) => <div key={index}>Loading...</div>)
-            : movies.map((movie, index) => (
-              <Movie
-              key={movie.imdbID}
-              Poster={movie.Poster}
-              Title={movie.Title}
-              Year={movie.Year}
-              imdbID={movie.imbdID}
-              />
-              ))}
-              </div>
+          <div className="movies__container">
+            <div className="movies movies__loading">
+              {/* <FontAwesomeIcon icon={faSpinner}className="fas fa-spinner movies__loading--spinner"></FontAwesomeIcon> */}
+            </div>
+            {loading
+              ? new Array().fill(0).map((_, index) => renderSkeleton(index))
+              : movies.map((movie, index) => (
+                  <Movie
+                    key={movie.imdbID}
+                    Poster={movie.Poster}
+                    Title={movie.Title}
+                    Year={movie.Year}
+                    imdbID={movie.imdbID}
+                    onMovieClick={handleMovieClick}
+                  />
+                ))}
+          </div>
         </div>
       </section>
     </div>
